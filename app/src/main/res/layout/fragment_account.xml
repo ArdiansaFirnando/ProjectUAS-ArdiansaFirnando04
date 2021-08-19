@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/fragment_account">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/id_toolbar_account"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:elevation="@dimen/_2sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_23sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Profile"
+            android:textColor="@color/color_primary"
+            android:textSize="@dimen/_16sdp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_23sdp"
+                android:background="@drawable/ic_settings"
+                android:backgroundTint="@color/color_primary" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_25sdp">
+
+        <ImageView
+            android:id="@+id/img_profile"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_60sdp"
+            android:src="@drawable/image_profile"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/_20sdp">
+
+            <TextView
+                android:id="@+id/set_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nando"
+                android:textColor="@color/color_primary"
+                android:fontFamily="@font/poppins_medium"
+                android:textStyle="bold"
+                android:textSize="@dimen/_14sdp" />
+
+            <TextView
+                android:id="@+id/set_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:fontFamily="@font/poppins_medium"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_1sdp">
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_50sdp"
+            android:backgroundTint="@color/color_primary"
+            android:text="Log Out"
+            android:fontFamily="@font/poppins_medium"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/_23sdp"
+            android:layout_marginRight="@dimen/_23sdp"
+            app:cornerRadius="@dimen/_30sdp"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

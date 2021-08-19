@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/fragment_home">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/id_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@color/white"
+        android:elevation="@dimen/_2sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dashboard"
+            android:textColor="@color/color_primary"
+            android:fontFamily="@font/poppins_medium"
+            android:textStyle="bold"
+            android:textSize="@dimen/_16sdp"
+            android:layout_marginLeft="@dimen/_23sdp"
+            android:layout_marginTop="@dimen/_25sdp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_23sdp"
+                android:background="@drawable/ic_filter_alt"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_alignParentRight="true"
+                android:backgroundTint="@color/color_primary"
+                android:layout_marginRight="@dimen/_23sdp" />
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/id_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FEFEFE"/>
+
+</LinearLayout>

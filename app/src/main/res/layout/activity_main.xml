@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already Have an"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/color_primary"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_60sdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account?"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/color_primary"
+        android:textSize="@dimen/_22sdp"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/_25sdp"/>
+
+
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/background_edit_text"
+        android:fontFamily="@font/poppins_medium"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_90sdp"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_25sdp"/>
+
+    <EditText
+        android:id="@+id/editText_password"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/background_edit_text"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:fontFamily="@font/poppins_medium"
+        android:paddingLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_25sdp"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_50sdp"
+        android:text="Login"
+        android:backgroundTint="@color/color_primary"
+        android:fontFamily="@font/poppins_bold"
+        android:textAllCaps="false"
+        android:textSize="@dimen/_13sdp"
+        android:textStyle="bold"
+        app:cornerRadius="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_13sdp"
+        android:layout_marginLeft="@dimen/_25sdp"
+        android:layout_marginRight="@dimen/_25sdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Forgot Password?"
+        android:textColor="@color/color_primary"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_30sdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="New User? Registrasi Now"
+        android:textColor="@color/color_primary"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/_7sdp"/>
+
+</LinearLayout>

@@ -22,6 +22,7 @@ public class DashboardActivity extends AppCompatActivity {
 
         getFragmentPage(new Fragment_home());
 
+
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override

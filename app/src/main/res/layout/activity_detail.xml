@@ -27,14 +27,14 @@
                     android:layout_marginTop="@dimen/_15sdp"/>
 
                 <ImageView
-                    android:id="@+id/btn_saved_detail"
+                    android:id="@+id/btn_saved_favorite"
                     android:layout_width="@dimen/_27sdp"
                     android:layout_height="@dimen/_27sdp"
-                    android:background="@drawable/ic_turned_in_not"
-                    android:backgroundTint="@color/color_primary"
-                    android:layout_marginTop="@dimen/_15sdp"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/_23sdp"/>
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginRight="@dimen/_23sdp"
+                    android:background="@drawable/ic_turned_in_not"
+                    android:backgroundTint="@color/color_primary" />
 
             </RelativeLayout>
 

@@ -28,13 +28,14 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/btn_favorite"
                 android:layout_width="@dimen/_20sdp"
                 android:layout_height="@dimen/_23sdp"
-                android:background="@drawable/ic_filter_alt"
-                android:layout_marginTop="@dimen/_25sdp"
                 android:layout_alignParentRight="true"
-                android:backgroundTint="@color/color_primary"
-                android:layout_marginRight="@dimen/_23sdp" />
+                android:layout_marginTop="@dimen/_25sdp"
+                android:layout_marginRight="@dimen/_23sdp"
+                android:background="@drawable/ic_filter_alt"
+                android:backgroundTint="@color/color_primary" />
 
         </RelativeLayout>
 

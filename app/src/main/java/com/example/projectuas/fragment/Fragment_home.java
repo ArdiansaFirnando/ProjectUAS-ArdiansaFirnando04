@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
 import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.example.projectuas.DetailActivity;
+import com.example.projectuas.FavoriteActivity;
 import com.example.projectuas.R;
 import com.example.projectuas.adapter.TeamsAdapter;
 import com.example.projectuas.model.ModelTeams;
@@ -40,7 +42,9 @@ public class Fragment_home extends Fragment {
     private RecyclerView recyclerView;
     private TeamsAdapter teamsAdapter;
     private ArrayList<ModelTeams> teamsArrayList;
+
     private Toolbar toolbar;
+    private ImageView btn_favorite;
 
     private String BASE_URL_THESPORTSDB = "https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4328";
 
@@ -49,16 +53,25 @@ public class Fragment_home extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        toolbar = view.findViewById(R.id.id_toolbar);
         recyclerView = view.findViewById(R.id.id_recyclerview);
+        toolbar = view.findViewById(R.id.id_toolbar);
+        btn_favorite = view.findViewById(R.id.btn_favorite);
 
         getData();
+
+        btn_favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getContext(), FavoriteActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
 
     public void getData() {
-        AndroidNetworking.get("https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4328")
+        AndroidNetworking.get(BASE_URL_THESPORTSDB)
                 .addPathParameter("pageNumber", "0")
                 .addQueryParameter("limit", "3")
                 .addHeaders("token", "1234")
@@ -90,6 +103,8 @@ public class Fragment_home extends Fragment {
                                     Intent intent = new Intent(getContext(), DetailActivity.class);
                                     intent.putExtra("image", teamsArrayList.get(position).getImage());
                                     intent.putExtra("name", teamsArrayList.get(position).getName());
+                                    intent.putExtra("years", teamsArrayList.get(position).getYears());
+                                    intent.putExtra("country", teamsArrayList.get(position).getCountry());
                                     intent.putExtra("description", teamsArrayList.get(position).getDescription());
                                     startActivity(intent);
                                 }

@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectUAS">
         <activity
+            android:name=".DetailFavoriteActivity"
+            android:exported="true" />
+        <activity
             android:name=".FavoriteActivity"
             android:exported="true" />
         <activity android:name=".DetailActivity" />

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.projectuas.JavaClass.RealmHelper;
@@ -38,17 +39,32 @@ public class FavoriteActivity extends AppCompatActivity {
         //Mengisi data
         dataModelList = realmHelper.getAllData();
 
-        teamsFavoriteAdapter = new TeamsFavoriteAdapter(dataModelList);
-
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(teamsFavoriteAdapter);
 
+        show();
+    }
 
-
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        teamsFavoriteAdapter.notifyDataSetChanged();
+        show();
     }
 
     public void show(){
-
+        teamsFavoriteAdapter = new TeamsFavoriteAdapter(dataModelList, new TeamsFavoriteAdapter.Callback() {
+            @Override
+            public void onClick(int position) {
+                Intent intent = new Intent(getApplicationContext(), DetailFavoriteActivity.class);
+                intent.putExtra("name", dataModelList.get(position).getName());
+                intent.putExtra("years", dataModelList.get(position).getYears());
+                intent.putExtra("country", dataModelList.get(position).getCountry());
+                intent.putExtra("description", dataModelList.get(position).getDescription());
+                intent.putExtra("image", dataModelList.get(position).getImage());
+                startActivity(intent);
+            }
+        });
+        recyclerView.setAdapter(teamsFavoriteAdapter);
     }
 }

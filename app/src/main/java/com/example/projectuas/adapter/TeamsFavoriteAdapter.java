@@ -1,5 +1,6 @@
 package com.example.projectuas.adapter;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,12 +17,20 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import javax.security.auth.callback.Callback;
+
 public class TeamsFavoriteAdapter extends RecyclerView.Adapter<TeamsFavoriteAdapter.TeamsFavoriteViewHolder> {
 
     private List<DataModel> dataModelList;
+    private Callback callback;
 
-    public TeamsFavoriteAdapter(List<DataModel> dataModelList) {
+    public interface Callback{
+        void onClick(int position);
+    }
+
+    public TeamsFavoriteAdapter(List<DataModel> dataModelList, Callback callback) {
         this.dataModelList = dataModelList;
+        this.callback = callback;
     }
 
     @NonNull
@@ -71,6 +80,13 @@ public class TeamsFavoriteAdapter extends RecyclerView.Adapter<TeamsFavoriteAdap
             txt_description = view.findViewById(R.id.txt_description);
             img_image = view.findViewById(R.id.img_image);
             cardView = view.findViewById(R.id.id_cardview);
+
+            cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    callback.onClick(getLayoutPosition());
+                }
+            });
         }
     }
 }

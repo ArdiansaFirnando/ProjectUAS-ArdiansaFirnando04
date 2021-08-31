@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Bundle bundle;
     private TextView txt_name;
@@ -60,6 +60,8 @@ public class DetailActivity extends AppCompatActivity {
         bundle = getIntent().getExtras();
         if (bundle != null) {
             name = bundle.getString("name");
+            years = bundle.getString("years");
+            country = bundle.getString("country");
             description = bundle.getString("description");
             image = bundle.getString("image");
         }
@@ -72,60 +74,51 @@ public class DetailActivity extends AppCompatActivity {
                 .error(R.drawable.ic_launcher_foreground)
                 .into(img_image);
 
-
-        Button();
-
         //Setup realm
         Realm.init(DetailActivity.this);
-        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().build();
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().allowWritesOnUiThread(true).build();
         realm = Realm.getInstance(realmConfiguration);
 
+        btn_back.setOnClickListener(this);
+        btn_saved_favorite.setOnClickListener(this);
+        btn_end.setOnClickListener(this);
     }
 
-    private void Button(){
-        btn_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                finish();
+    @Override
+    public void onClick(View view) {
+
+        if (view.equals(btn_back)){
+            finish();
+        }
+
+        //Button save
+        if (view.equals(btn_saved_favorite)){
+
+            bundle = getIntent().getExtras();
+            if (bundle != null) {
+                name = bundle.getString("name");
+                years = bundle.getString("years");
+                country = bundle.getString("country");
+                description = bundle.getString("description");
+                image = bundle.getString("image");
             }
-        });
 
-        //Button Favorite
-        btn_saved_favorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            dataModel = new DataModel();
+            dataModel.setName(name);
+            dataModel.setYears(years);
+            dataModel.setCountry(country);
+            dataModel.setDescription(description);
+            dataModel.setImage(image);
 
-                bundle = getIntent().getExtras();
-                if (bundle != null) {
-                    name = bundle.getString("name").toString();
-                    years = bundle.getString("years").toString();
-                    country = bundle.getString("country").toString();
-                    description = bundle.getString("description").toString();
-                    image = bundle.getString("image").toString();
-                }
+            realmHelper = new RealmHelper(realm);
+            realmHelper.Save(dataModel);
 
-                dataModel = new DataModel();
-                dataModel.setName(name);
-                dataModel.setYears(years);
-                dataModel.setCountry(country);
-                dataModel.setDescription(description);
-                dataModel.setImage(image);
+            Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
 
-                realmHelper = new RealmHelper(realm);
-                realmHelper.Save(dataModel);
-
-                Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-        btn_end.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        if (view.equals(btn_end)){
+            finish();
+        }
     }
-
 }

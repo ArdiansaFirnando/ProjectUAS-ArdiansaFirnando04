@@ -25,7 +25,6 @@ public class RealmHelper {
             @Override
             public void execute(Realm realm) {
                 if (realm != null){
-                    Log.d("Create", "execute: Database telah dibuat");
 
                     Number current_id = realm.where(DataModel.class).max("id");
                     int nextId;
@@ -38,6 +37,8 @@ public class RealmHelper {
 
                     dataModel.setId(nextId);
                     DataModel model = realm.copyToRealm(dataModel);
+
+                    Log.d("Create", "execute: Database telah dibuat");
                 }
                 else {
                     Log.d("Create", "execute: Database gagal dibuat");

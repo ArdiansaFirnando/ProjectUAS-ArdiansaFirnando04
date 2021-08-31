@@ -75,8 +75,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                 .into(img_image);
 
         //Setup realm
-        Realm.init(DetailActivity.this);
-        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().allowWritesOnUiThread(true).build();
+        Realm.init(this);
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().build();
         realm = Realm.getInstance(realmConfiguration);
 
         btn_back.setOnClickListener(this);

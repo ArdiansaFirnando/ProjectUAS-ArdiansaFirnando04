@@ -58,7 +58,6 @@ public class TeamsFavoriteAdapter extends RecyclerView.Adapter<TeamsFavoriteAdap
 
     @Override
     public int getItemCount() {
-
         return (dataModelList != null) ? dataModelList.size() : 0;
     }
 

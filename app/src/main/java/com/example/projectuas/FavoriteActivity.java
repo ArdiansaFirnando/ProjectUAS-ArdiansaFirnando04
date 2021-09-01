@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toolbar;
 
 import com.example.projectuas.JavaClass.RealmHelper;
 import com.example.projectuas.adapter.TeamsFavoriteAdapter;
@@ -15,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
+import io.realm.RealmConfiguration;
 
 public class FavoriteActivity extends AppCompatActivity {
 
@@ -25,14 +29,21 @@ public class FavoriteActivity extends AppCompatActivity {
     private Realm realm;
     private RealmHelper realmHelper;
 
+    private ImageView btn_back_favorite;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite);
 
+
+        btn_back_favorite = findViewById(R.id.btn_back_favorite);
         recyclerView = findViewById(R.id.id_recyclerview_favorite);
 
-        //Setup Realm
+        //Retup realm
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder().build();
+        realm = Realm.getInstance(realmConfiguration);
+
         realmHelper = new RealmHelper(realm);
         dataModelList = new ArrayList<>();
 
@@ -43,6 +54,13 @@ public class FavoriteActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         show();
+
+        btn_back_favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     @Override
@@ -57,6 +75,7 @@ public class FavoriteActivity extends AppCompatActivity {
             @Override
             public void onClick(int position) {
                 Intent intent = new Intent(getApplicationContext(), DetailFavoriteActivity.class);
+                intent.putExtra("id", dataModelList.get(position).getId());
                 intent.putExtra("name", dataModelList.get(position).getName());
                 intent.putExtra("years", dataModelList.get(position).getYears());
                 intent.putExtra("country", dataModelList.get(position).getCountry());

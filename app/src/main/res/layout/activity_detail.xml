@@ -21,10 +21,10 @@
                     android:id="@+id/btn_back_detail"
                     android:layout_width="@dimen/_27sdp"
                     android:layout_height="@dimen/_27sdp"
-                    android:background="@drawable/ic_back"
-                    android:backgroundTint="@color/color_primary"
                     android:layout_marginLeft="@dimen/_23sdp"
-                    android:layout_marginTop="@dimen/_15sdp"/>
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="@drawable/ic_back"
+                    android:backgroundTint="@color/color_primary" />
 
                 <ImageView
                     android:id="@+id/btn_saved_favorite"

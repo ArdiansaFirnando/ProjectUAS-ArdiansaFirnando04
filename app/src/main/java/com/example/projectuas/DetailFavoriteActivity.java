@@ -3,6 +3,7 @@ package com.example.projectuas;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -57,6 +58,8 @@ public class DetailFavoriteActivity extends AppCompatActivity implements View.On
             description = bundle.getString("description");
             image = bundle.getString("image");
         }
+
+        Log.i("ppppppppppppppp", "onCreate: "+id);
 
         txt_name.setText(name);
         txt_description.setText(description);

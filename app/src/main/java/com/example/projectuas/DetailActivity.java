@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -40,6 +41,12 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private String country;
     private String description;
     private String image;
+
+    private String names;
+    private String yearss;
+    private String countrys;
+    private String descriptions;
+    private String images;
 
     private Realm realm;
     private RealmHelper realmHelper;
@@ -97,22 +104,24 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
             bundle = getIntent().getExtras();
             if (bundle != null) {
-                name = bundle.getString("name");
-                years = bundle.getString("years");
-                country = bundle.getString("country");
-                description = bundle.getString("description");
-                image = bundle.getString("image");
+                names = bundle.getString("name");
+                yearss = bundle.getString("years");
+                countrys = bundle.getString("country");
+                descriptions = bundle.getString("description");
+                images = bundle.getString("image");
             }
 
+
             dataModel = new DataModel();
-            dataModel.setName(name);
-            dataModel.setYears(years);
-            dataModel.setCountry(country);
-            dataModel.setDescription(description);
-            dataModel.setImage(image);
+            dataModel.setName(names);
+            dataModel.setYears(yearss);
+            dataModel.setCountry(countrys);
+            dataModel.setDescription(descriptions);
+            dataModel.setImage(images);
 
             realmHelper = new RealmHelper(realm);
             realmHelper.Save(dataModel);
+
 
             Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
         }

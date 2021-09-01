@@ -50,6 +50,7 @@ public class RealmHelper {
     //Function untuk memanggil data
     public List<DataModel> getAllData(){
         RealmResults<DataModel> results = realm.where(DataModel.class).findAll();
+
         return results;
     }
 
@@ -59,6 +60,7 @@ public class RealmHelper {
             @Override
             public void execute(Realm realm) {
                 RealmResults<DataModel> results = realm.where(DataModel.class).equalTo("id", id).findAll();
+                Log.i("pppppppppppppppp", "getAllData: "+results.size());
                 results.deleteFromRealm(0);
             }
         });

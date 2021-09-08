@@ -38,7 +38,7 @@ public class TeamsFavoriteAdapter extends RecyclerView.Adapter<TeamsFavoriteAdap
     public TeamsFavoriteAdapter.TeamsFavoriteViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View view = layoutInflater.inflate(R.layout.item_teams, parent, false);
+        View view = layoutInflater.inflate(R.layout.item_teams_favorite, parent, false);
         return new TeamsFavoriteViewHolder(view);
     }
 
@@ -73,12 +73,12 @@ public class TeamsFavoriteAdapter extends RecyclerView.Adapter<TeamsFavoriteAdap
         public TeamsFavoriteViewHolder(@NonNull View view) {
             super(view);
 
-            txt_name = view.findViewById(R.id.txt_name);
-            txt_years = view.findViewById(R.id.txt_years);
-            txt_country = view.findViewById(R.id.txt_country);
-            txt_description = view.findViewById(R.id.txt_description);
-            img_image = view.findViewById(R.id.img_image);
-            cardView = view.findViewById(R.id.id_cardview);
+            txt_name = view.findViewById(R.id.txt_name_favorite);
+            txt_years = view.findViewById(R.id.txt_years_favorite);
+            txt_country = view.findViewById(R.id.txt_country_favorite);
+            txt_description = view.findViewById(R.id.txt_description_favorite);
+            img_image = view.findViewById(R.id.img_image_favorite);
+            cardView = view.findViewById(R.id.id_cardview_favorite);
 
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override

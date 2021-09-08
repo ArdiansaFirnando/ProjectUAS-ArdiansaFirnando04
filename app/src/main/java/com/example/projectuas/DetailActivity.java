@@ -20,6 +20,7 @@ import com.example.projectuas.fragment.Fragment_home;
 import com.example.projectuas.model.DataModel;
 import com.example.projectuas.model.ModelTeams;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 
@@ -41,12 +42,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private String country;
     private String description;
     private String image;
-
-    private String names;
-    private String yearss;
-    private String countrys;
-    private String descriptions;
-    private String images;
 
     private Realm realm;
     private RealmHelper realmHelper;
@@ -104,20 +99,20 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
             bundle = getIntent().getExtras();
             if (bundle != null) {
-                names = bundle.getString("name");
-                yearss = bundle.getString("years");
-                countrys = bundle.getString("country");
-                descriptions = bundle.getString("description");
-                images = bundle.getString("image");
+                name = bundle.getString("name");
+                years = bundle.getString("years");
+                country = bundle.getString("country");
+                description = bundle.getString("description");
+                image = bundle.getString("image");
             }
 
 
             dataModel = new DataModel();
-            dataModel.setName(names);
-            dataModel.setYears(yearss);
-            dataModel.setCountry(countrys);
-            dataModel.setDescription(descriptions);
-            dataModel.setImage(images);
+            dataModel.setName(name);
+            dataModel.setYears(years);
+            dataModel.setCountry(country);
+            dataModel.setDescription(description);
+            dataModel.setImage(image);
 
             realmHelper = new RealmHelper(realm);
             realmHelper.Save(dataModel);

@@ -19,8 +19,8 @@
             android:name=".FavoriteActivity"
             android:exported="true" />
         <activity android:name=".DetailActivity" />
-<!--        <activity android:name=".DashboardActivity" />-->
-        <activity android:name=".DashboardActivity">
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".SplachScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

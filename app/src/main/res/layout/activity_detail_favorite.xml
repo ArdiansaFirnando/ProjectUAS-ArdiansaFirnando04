@@ -25,6 +25,7 @@
                 android:backgroundTint="@color/color_primary" />
 
             <ImageView
+                android:id="@+id/btn_delete_detal_favorite"
                 android:layout_width="@dimen/_27sdp"
                 android:layout_height="@dimen/_27sdp"
                 android:layout_alignParentRight="true"
@@ -96,7 +97,6 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/btn_delete_detal_favorite"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_50sdp"
             android:backgroundTint="@color/color_primary"

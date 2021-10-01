@@ -2,6 +2,7 @@ package com.example.projectuas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,7 +25,7 @@ public class DetailFavoriteActivity extends AppCompatActivity implements View.On
     private TextView txt_description;
     private ImageView img_image;
     private ImageView btn_back;
-    private Button btn_delete;
+    private ImageView btn_delete;
 
     private int id;
     private String name;

@@ -36,7 +36,7 @@ public class RealmHelper {
                     }
 
                     dataModel.setId(nextId);
-                    DataModel model = realm.copyToRealm(dataModel);
+                    realm.copyToRealm(dataModel);
 
                     Log.d("Create", "execute: Database telah dibuat");
                 }

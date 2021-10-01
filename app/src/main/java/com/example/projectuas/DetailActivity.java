@@ -19,6 +19,7 @@ import com.example.projectuas.adapter.TeamsAdapter;
 import com.example.projectuas.fragment.Fragment_home;
 import com.example.projectuas.model.DataModel;
 import com.example.projectuas.model.ModelTeams;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -36,6 +37,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private ImageView img_image;
     private ImageView btn_saved_favorite;
     private Button btn_end;
+    private MaterialToolbar toolbar;
 
     private String name;
     private String years;
@@ -114,9 +116,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             dataModel.setDescription(description);
             dataModel.setImage(image);
 
+
             realmHelper = new RealmHelper(realm);
             realmHelper.Save(dataModel);
-
 
             Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT).show();
         }

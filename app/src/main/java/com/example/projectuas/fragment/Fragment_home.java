@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class Fragment_home extends Fragment {
     private TeamsAdapter teamsAdapter;
     private ArrayList<ModelTeams> teamsArrayList;
 
+    private ProgressBar progressBar;
     private Toolbar toolbar;
     private ImageView btn_favorite;
 
@@ -55,9 +57,12 @@ public class Fragment_home extends Fragment {
 
         recyclerView = view.findViewById(R.id.id_recyclerview);
         toolbar = view.findViewById(R.id.id_toolbar);
+        progressBar = view.findViewById(R.id.progress_bar);
         btn_favorite = view.findViewById(R.id.btn_favorite);
 
+        progressBar.setVisibility(View.VISIBLE);
         getData();
+
 
         btn_favorite.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +87,8 @@ public class Fragment_home extends Fragment {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+
+
                             teamsArrayList = new ArrayList<>();
 
                             JSONArray jsonArray = response.getJSONArray("teams");
@@ -95,6 +102,8 @@ public class Fragment_home extends Fragment {
 
                                 teamsArrayList.add(new ModelTeams(name, years, country, description, image));
                             }
+
+                            progressBar.setVisibility(View.GONE);
 
                             teamsAdapter = new TeamsAdapter(teamsArrayList, new TeamsAdapter.Callback() {
                                 @Override
